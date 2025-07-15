@@ -1,0 +1,13 @@
+
+
+# a = input()
+# print('good ',a)
+# print(f"good {a} this is a test")
+
+# double = 'this is a  test   to check th   e double  test'
+# a = double.find('  ')
+# print('Double',a)
+
+immutiable = 'string are immutable'
+print(immutiable.replace('s','z'))
+print(immutiable)

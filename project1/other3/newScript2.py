@@ -1,0 +1,26 @@
+import requests
+
+auth_token = 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjFBRjQzNjk5RUE0NDlDNkNCRUU3NDZFMjhDODM5NUIyMEE0MUNFMTgiLCJ4NXQiOiJHdlEybWVwRW5HeS01MGJpaklPVnNncEJ6aGciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FwcC5rZWthLmNvbSIsIm5iZiI6MTc0MjMxMzc0MSwiaWF0IjoxNzQyMzEzNzQxLCJleHAiOjE3NDI0MDAxNDEsImF1ZCI6WyJrZWthaHIuYXBpIiwiaGlyby5hcGkiLCJodHRwczovL2FwcC5rZWthLmNvbS9yZXNvdXJjZXMiXSwic2NvcGUiOlsib3BlbmlkIiwia2VrYWhyLmFwaSIsImhpcm8uYXBpIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbImV4dGVybmFsIl0sImNsaWVudF9pZCI6Ijk4N2NjOTcxLWZjMjItNDQ1NC05OWY5LTE2YzA3OGZhN2ZmNiIsInN1YiI6ImRmMjQ1MTlmLTVjYjMtNDBkOC1hM2JhLTExZDJkN2FhNGVlYSIsImF1dGhfdGltZSI6MTczODY4NjgyNCwiaWRwIjoiR29vZ2xlIiwidGVuYW50X2lkIjoiOTk0OTYyYTktNjcxZC00NGVkLTliZDMtNDBjNDJiZGIxMjRkIiwidGVuYW50aWQiOiI5OTQ5NjJhOS02NzFkLTQ0ZWQtOWJkMy00MGM0MmJkYjEyNGQiLCJzdWJkb21haW4iOiJmeW5kLmtla2EuY29tIiwidXNlcl9pZCI6IjFkYzJmNGYyLTkzNjUtNDk1Zi1iMDBhLTJhM2ViMjkxYWIyNiIsInVzZXJfaWRlbnRpZmllciI6IjFkYzJmNGYyLTkzNjUtNDk1Zi1iMDBhLTJhM2ViMjkxYWIyNiIsInVzZXJuYW1lIjoibW9oYW5wcmFzYWRAZ29meW5kLmNvbSIsImVtYWlsIjoibW9oYW5wcmFzYWRAZ29meW5kLmNvbSIsImF1dGhlbnRpY2F0aW9uX3R5cGUiOiIzIiwic2lkIjoiOEUwQzFBQjhCMUYwRDFFODBFODg2MjY0M0YzQUJCNkMiLCJqdGkiOiJDM0JGNUNFOEU2QTE2NkY4Q0Q1NjQyQ0Y5OUMxRTA0RSJ9.KAJIJQYkgkmQ4rVBoFYolzFEzfV3jTrTAxy3-WXGBTMa7pUAbt9ZVAHuXOi2oFg2EqdC5Iu9--QfkoUbHDFih2lZsMeh5THY3taNyFSSzxIl-H05WrfuQusXSLBGFOSvPb_-GTDvEUIB23dOKPq7iudwjxSokSIZPPV9Z6TZBLQtN6tnZr3b_WzcqyzkaDl1KXhz9kr_Y6-LzhOm5RapF1_ME39Tc4GQKNPSU74O1E-b0Ut0c62SKH3P2NJCQE4jjMXKbwLKs3YOTPTRKJ7C6bg0iKVyadmty1hABBg--FUQ7_z_XsoRFxlR6gAKAA-LqeTZmOAjVxsOnUWl11ilmw'
+
+headers = {
+    'accept': 'application/json, text/plain, */*',
+    'authorization': auth_token,
+    'content-type': 'application/json; charset=utf-8'
+}
+
+employee_ids = [831489, 1253377, 1263618, 294918, 724998, 999432, 796681, 1253388, 747534, 172050, 1302553, 647196, 831516, 565279, 897056, 831521, 897058, 897057, 897060, 1253412, 1302566, 995367, 897059, 725033, 1253418, 897065, 897068, 1011756, 897070, 725039, 897072, 897071, 1304622, 708658, 897074, 780334, 354361, 1253435, 1138748, 1382463, 1077313, 831554, 907333, 907334, 530503, 825415, 747592, 907335, 593995, 1163335, 1284168, 907342, 907343, 1218637, 907345, 1284178, 530514, 669787, 1284189, 559199, 1163363, 1359974, 1384551, 724987, 1163369, 518246, 1284208, 1384566, 839800, 1284219, 1284224, 839818, 426125, 426128, 426129, 426131, 426132, 1384597, 1114265, 1384602, 653467, 882844, 882845, 882846, 882850, 882852, 882853, 1284262, 882854, 817318, 813225, 1253546, 1003689, 1003690, 1003691, 833710, 1245359, 1267888, 1284267, 653482, 1382573, 639156, 1339576, 1220793, 1364152, 1245371, 817340, 1339581, 1382584, 1382591, 1339584, 1267904, 653506, 1220802, 1245382, 1091784, 817353]
+
+for emp_id in employee_ids:
+    url = f'https://fynd.keka.com/k/default/api/employee/{emp_id}/profile/profileheader'
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        json_data = response.json()
+        data = json_data.get('data', {})
+        name = data.get('displayName', 'N/A')
+        is_onboarding_initiated = data.get('isOnboardingInitiated', False)
+        
+        if is_onboarding_initiated:
+            print(f"Employee ID: {emp_id} | Name: {name} | isOnboardingInitiated: {is_onboarding_initiated}")
+    else:
+        print(f"Failed to fetch data for Employee ID: {emp_id} | Status Code: {response.status_code}")
