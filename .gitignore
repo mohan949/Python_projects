@@ -1,6 +1,100 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.DS_Store
-.Trash/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python virtualenv files
+pip-log.txt
+pip-delete-this-directory.txt
+pyvenv.cfg
+
+# Pytest cache
+.pytest_cache/
+
+# VS Code & Trae IDE settings
+.vscode/
+*.code-workspace
+
+# IDE settings
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Playwright test outputs
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Playwright downloads
+downloads/
+screenshots/
+videos/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# MyPy / Pylint / Pyre / Bandit etc.
+.mypy_cache/
+.dmypy.json
+.pytype/
+pylint-report.txt
+bandit-result.json
+
+# Logs and debug
+*.log
+*.tmp
+*.swp
+*.bak
+
+# macOS / Linux / Windows system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Secrets / environment
+.env
+.env.*
+.secret
+*.pem
+*.key
+
+# Python egg info
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+__pypackages__/
+
+# GitHub Copilot / secret scanning cache
+.github/copilot*
+.github/security/*.json
