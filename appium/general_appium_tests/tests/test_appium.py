@@ -9,6 +9,7 @@ options.device_name = "emulator-5554"  # Emulator ID from `adb devices` (or use 
 options.app_package = "com.android.calculator2"  # Android Calculator app package
 options.app_activity = ".Calculator"  # Activity to launch the Calculator
 options.automation_name = "UiAutomator2"  # Use UiAutomator2 automation framework
+options.no_reset = True  # Don't reset app state between sessions
 
 # Initialize the Appium driver with the desired capabilities
 #driver = webdriver.Remote("http://localhost:4723/wd/hub", options=options)
