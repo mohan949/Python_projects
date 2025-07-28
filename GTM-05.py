@@ -29,7 +29,7 @@ def send_detailed_slack_report(results, csv_file, env_name, webhook_url):
 
 # ----- GTmetrix API config -----
 os.environ['REQUESTS_CA_BUNDLE'] = '/etc/ssl/cert.pem'
-API_KEY = "59516b35bf1cfe8713bf675737d8a472"  # Replace with your actual GTmetrix API key!
+API_KEY = "test"  # Replace with your actual GTmetrix API key!
 BASE_URL = "https://gtmetrix.com/api/2.0/"
 
 # Hardcoded UAT and PROD URLs and Page Names
